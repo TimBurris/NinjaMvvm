@@ -101,6 +101,7 @@ namespace NinjaMvvmTests
 
             //*************    act    ******************
             var x = mockvm.Object.ViewBound;
+            Task.Delay(300).Wait();
 
             //*************  assert   ******************
             mockvm.Object.LoadFailed.Should().BeTrue();
