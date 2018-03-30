@@ -1,0 +1,39 @@
+﻿<Window x:Class="NinjaMvvm.Wpf.Samples.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Converters="clr-namespace:NinjaMvvm.Wpf.Converters;assembly=NinjaMvvm.Wpf"
+        xmlns:local="clr-namespace:NinjaMvvm.Wpf.Samples"
+        mc:Ignorable="d" 
+        xmlns:designViewModel="clr-namespace:NinjaMvvm.Wpf.Samples.ViewModels"
+        d:DataContext ="{d:DesignInstance {x:Type designViewModel:MainViewModel}, IsDesignTimeCreatable=True}" 
+        Title="{Binding ViewTitle}" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+            <Converters:NegativeBooleanToVisibilityConverter x:Key="NegativeBoolToVis"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <StackPanel>
+        <StackPanel Width="400" HorizontalAlignment="Center" Visibility="{Binding IsBusy, Converter={StaticResource NegativeBoolToVis}}">
+            <CheckBox IsChecked="{Binding IsStampAllowed}"  Content="Allow Stamp" Margin="10"/>
+            <Button Command="{Binding ToggleCommand}" Content="Toggle" Margin="10"/>
+            <Button Command="{Binding StampCommand}" Content="Stamp" Margin="10"/>
+            <TextBlock Text="{Binding StampMessage}" Margin="10" TextWrapping="WrapWithOverflow"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                <Label Content="Some Text Value"/>
+                <TextBox Width="100"
+                    Text="{Binding SomeTextValue, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="10"/>
+            </StackPanel>
+            <Button Command="{Binding ValidateMeCommand}" Content="Validate me" Margin="10"/>
+            <Button Command="{Binding DoLoadCommand}" Content="Reload" Margin="10"/>
+            <Label Content="Loading was cancelled" Visibility="{Binding LoadCancelled, Converter={StaticResource BoolToVis}}"/>
+
+        </StackPanel>
+        <StackPanel Visibility="{Binding IsBusy, Converter={StaticResource BoolToVis}}">
+            <Label Content="We are busy loading.  come back later"/>
+            <Button Command="{Binding CancelReloadCommand}" Content="Cancel" Margin="10" />
+        </StackPanel>
+    </StackPanel>
+</Window>

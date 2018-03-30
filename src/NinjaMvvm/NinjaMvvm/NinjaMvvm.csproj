@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>A very lightweight Mvvm package providing standard PropertyChanged Notification and ICommand Implementations, along with some common functionality like DesignData, Validation, and LoadData.</Description>
+    <PackageLicenseUrl>https://github.com/DumpsterNinja/NinjaMvvm/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/DumpsterNinja/NinjaMvvm</PackageProjectUrl>
+    <Authors>Tim Burris</Authors>
+  </PropertyGroup>
+
+</Project>
