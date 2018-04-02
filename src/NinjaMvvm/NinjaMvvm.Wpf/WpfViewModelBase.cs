@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NinjaMvvm
+namespace NinjaMvvm.Wpf
 {
 
     /// <summary>
