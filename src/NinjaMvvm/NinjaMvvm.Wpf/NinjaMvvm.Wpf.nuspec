@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>NinjaMvvm.Wpf</id>
+    <version>0.0.1.1</version>
+    <title>NinjaMvvm.Wpf</title>
+    <authors>Tim Burris</authors>
+    <owners>Tim Burris</owners>
+    <licenseUrl>https://github.com/DumpsterNinja/NinjaMvvm/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/DumpsterNinja/NinjaMvvm</projectUrl>    
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A very lightweight Mvvm package providing standard PropertyChanged Notification and ICommand Implementations, along with some common functionality like DesignData, Validation, and LoadData.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>mvvm wpf relaycommand viewmodel</tags>
+	<dependencies>
+        <dependency id="FluentAssertions" version="5.2.0" />
+		<dependency id="FluentValidation" version="7.5.2" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\NinjaMvvm.dll" target="lib\net471\NinjaMvvm.dll" />
+	<file src="bin\Release\NinjaMvvm.xml" target="lib\net471\NinjaMvvm.xml" />
+    <file src="bin\Release\NinjaMvvm.Wpf.dll" target="lib\net471\NinjaMvvm.Wpf.dll" />
+	<file src="bin\Release\NinjaMvvm.Wpf.xml" target="lib\net471\NinjaMvvm.Wpf.xml" />
+</files>
+
+</package>

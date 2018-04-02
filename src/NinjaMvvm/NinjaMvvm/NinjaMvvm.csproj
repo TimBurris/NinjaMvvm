@@ -8,4 +8,8 @@
     <Authors>Tim Burris</Authors>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard2.0\NinjaMvvm.xml</DocumentationFile>
+  </PropertyGroup>
+
 </Project>

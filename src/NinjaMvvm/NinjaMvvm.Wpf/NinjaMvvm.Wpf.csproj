@@ -13,13 +13,6 @@
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
-  <PropertyGroup>
-    <PackageId>NinjaMvvm.Wpf</PackageId>
-    <Authors>Tim Burris</Authors>
-    <BuildOutputTargetFolder>lib\net471</BuildOutputTargetFolder>
-	 <PackageLicenseUrl>https://github.com/DumpsterNinja/NinjaMvvm/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/DumpsterNinja/NinjaMvvm</PackageProjectUrl>
-</PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -36,6 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\NinjaMvvm.Wpf.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FluentValidation, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
