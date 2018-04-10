@@ -12,6 +12,7 @@ namespace NinjaMvvmTests
         [TestMethod]
         public void calls_loaddesigndata_when_in_design_mode()
         {
+
             //*************  arrange  ******************
             //*************    act    ******************
             var vm = new DesignModeTestViewModel();
@@ -116,10 +117,10 @@ namespace NinjaMvvmTests
             var mockvm = new Mock<TestViewModel>();
             mockvm.CallBase = true;
             mockvm.Setup(m => m.Exposed_OnReloadDataAsync(It.IsAny<System.Threading.CancellationToken>()))
-                .Returns<System.Threading.CancellationToken>((c) =>
+                .Returns<System.Threading.CancellationToken>(async (c) =>
                 {
-                    try { Task.Delay(5000, c).Wait(); } catch { }
-                    return Task.FromResult(false);
+                    try { await Task.Delay(5000, c); } catch { }
+                    return false;
                 });
 
             //*************    act    ******************
@@ -131,6 +132,37 @@ namespace NinjaMvvmTests
             //*************  assert   ******************
             mockvm.Object.LoadFailed.Should().BeFalse();
             mockvm.Object.LoadCancelled.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void OnReloadDataAsync_is_called_on_main_thread()
+        {
+            //*************  arrange  ******************
+            if (System.Threading.Thread.CurrentThread.GetApartmentState() != System.Threading.ApartmentState.STA)
+            {
+                throw new ApplicationException("The current threads apartment state is not STA");
+            }
+
+            bool fired = false;
+            bool isSTA = false;
+            var mockvm = new Mock<TestViewModel>();
+            mockvm.CallBase = true;
+            mockvm.Setup(m => m.Exposed_OnReloadDataAsync(It.IsAny<System.Threading.CancellationToken>()))
+                .Returns<System.Threading.CancellationToken>((c) =>
+                {
+                    fired = true;
+                    isSTA = (System.Threading.Thread.CurrentThread.GetApartmentState() == System.Threading.ApartmentState.STA);
+                    return Task.FromResult(true);
+                });
+
+            //*************    act    ******************
+            mockvm.Object.Exposed_ReloadDataAsync();
+            Task.Delay(300).Wait();
+
+            //*************  assert   ******************
+            fired.Should().BeTrue();
+            isSTA.Should().BeTrue();
+
         }
     }
 }

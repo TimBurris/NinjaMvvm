@@ -145,14 +145,21 @@ namespace NinjaMvvm
             bool wasCancelled = false;
             try
             {
-                await Task.Run(() => OnReloadDataAsync(localCancellationTokenSource.Token))
-                    .ContinueWith(t =>
-                    {
-                        wasCancelled = localCancellationTokenSource.IsCancellationRequested || t.IsCanceled;
-                        //if cancel we still say successful because it was not a fail/error
-                        wasSuccessful = wasCancelled || t.Result;
-                        this.LoadFailedException = t.Exception;
-                    });
+
+                var result = await OnReloadDataAsync(localCancellationTokenSource.Token);
+                wasCancelled = localCancellationTokenSource.IsCancellationRequested;
+                //if cancel we still say successful because it was not a fail/error
+                wasSuccessful = wasCancelled || result;
+            }
+            catch (System.Threading.Tasks.TaskCanceledException)
+            {
+                wasCancelled = true;
+                //if cancel we still say successful because it was not a fail/error
+                wasSuccessful = true;
+            }
+            catch (Exception ex)
+            {
+                this.LoadFailedException = ex;
             }
             finally
             {

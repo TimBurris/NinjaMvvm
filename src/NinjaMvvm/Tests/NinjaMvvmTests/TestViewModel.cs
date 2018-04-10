@@ -37,6 +37,7 @@ namespace NinjaMvvmTests
 
         protected override Task<bool> OnReloadDataAsync(CancellationToken cancellationToken)
         {
+
             return this.Exposed_OnReloadDataAsync(cancellationToken);
         }
 
@@ -48,6 +49,10 @@ namespace NinjaMvvmTests
         public void Exposed_CancelReloadDataAsync()
         {
             this.CancelReloadDataAsync();
+        }
+        public void Exposed_ReloadDataAsync()
+        {
+            this.ReloadDataAsync();
         }
     }
 }
