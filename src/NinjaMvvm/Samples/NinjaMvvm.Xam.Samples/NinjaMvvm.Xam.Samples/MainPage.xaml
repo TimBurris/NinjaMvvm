@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:NinjaMvvm.Xam.Samples"
+             xmlns:Converters="clr-namespace:NinjaMvvm.Xam.Converters;assembly=NinjaMvvm.Xam"
+             x:Class="NinjaMvvm.Xam.Samples.MainPage"
+             Title="{Binding ViewTitle}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            
+            <Converters:NegativeBooleanConverter x:Key="NegativeBool"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <StackLayout WidthRequest="400" HorizontalOptions="Center" IsVisible="{Binding IsBusy, Converter={StaticResource NegativeBool}}">
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <Switch IsToggled="{Binding IsStampAllowed}"/>
+                <Label Text="Allow Stamp"/>
+            </StackLayout>
+            <Button Command="{Binding ToggleCommand}" Text="Toggle" Margin="10"/>
+            <Button Command="{Binding StampCommand}" Text="Stamp" Margin="10" IsEnabled="{Binding IsStampAllowed}"/>
+            <Editor Text="{Binding StampMessage}" Margin="10" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="Some Text Value"/>
+                <Entry WidthRequest="100"
+                    Text="{Binding SomeTextValue}" Margin="10"/>
+            </StackLayout>
+            <Button Command="{Binding DoLoadCommand}" Text="Reload" Margin="10"/>
+            <Label Text="Loading was cancelled" IsVisible="{Binding LoadCancelled}"/>
+
+        </StackLayout>
+        <StackLayout IsVisible="{Binding IsBusy}">
+            <Label Text="We are busy loading stuff.  come back later"/>
+            <Button Command="{Binding CancelReloadCommand}" Text="Cancel" Margin="10" />
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

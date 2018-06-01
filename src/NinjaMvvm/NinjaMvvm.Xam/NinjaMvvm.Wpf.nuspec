@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>NinjaMvvm.Xam</id>
+    <version>0.0.1.1</version>
+    <title>NinjaMvvm.Xam</title>
+    <authors>Tim Burris</authors>
+    <owners>Tim Burris</owners>
+    <licenseUrl>https://github.com/DumpsterNinja/NinjaMvvm/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/DumpsterNinja/NinjaMvvm</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A very lightweight Mvvm package providing standard PropertyChanged Notification and ICommand Implementations, along with some common functionality like Navigation and LoadData.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>mvvm xamarin relaycommand viewmodel</tags>
+    <dependencies>
+      <dependency id="Xamvvm.Core" version="1.0.4" />
+      <dependency id="Xamarin.Forms" version="3.0.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\NinjaMvvm.dll" target="lib\net471\NinjaMvvm.dll" />
+    <file src="bin\Release\NinjaMvvm.xml" target="lib\net471\NinjaMvvm.xml" />
+    <file src="bin\Release\NinjaMvvm.Xam.dll" target="lib\net471\NinjaMvvm.Xam.dll" />
+    <file src="bin\Release\NinjaMvvm.Xam.xml" target="lib\net471\NinjaMvvm.Xam.xml" />
+  </files>
+
+</package>
