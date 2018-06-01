@@ -19,10 +19,10 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\NinjaMvvm.dll" target="lib\netstandard2.0\NinjaMvvm.dll" />
-    <file src="bin\Release\NinjaMvvm.xml" target="lib\netstandard2.0\NinjaMvvm.xml" />
-    <file src="bin\Release\NinjaMvvm.Xam.dll" target="lib\netstandard2.0\NinjaMvvm.Xam.dll" />
-    <file src="bin\Release\NinjaMvvm.Xam.xml" target="lib\netstandard2.0\NinjaMvvm.Xam.xml" />
+    <file src="bin\Release\netstandard2.0\NinjaMvvm.dll" target="lib\netstandard2.0\NinjaMvvm.dll" />
+    <file src="bin\Release\netstandard2.0\NinjaMvvm.xml" target="lib\netstandard2.0\NinjaMvvm.xml" />
+    <file src="bin\Release\netstandard2.0\NinjaMvvm.Xam.dll" target="lib\netstandard2.0\NinjaMvvm.Xam.dll" />
+    <file src="bin\Release\netstandard2.0\NinjaMvvm.Xam.xml" target="lib\netstandard2.0\NinjaMvvm.Xam.xml" />
   </files>
 
 </package>
