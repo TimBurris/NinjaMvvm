@@ -1,21 +1,27 @@
 ﻿using System;
+using Xamvvm;
 
 namespace NinjaMvvm.Xam
 {
     public class XamPageModelBase : NinjaMvvm.ViewModelBase, Xamvvm.IBasePageModel, Xamvvm.IPageVisibilityChange
     {
-
-        /// <summary>
-        /// if you override, you still need to call base.OnAppearing if you want the base class to signal that it ahs been bound (which kicks off reload)
-        /// </summary>
-        public virtual void OnAppearing()
+        void IPageVisibilityChange.OnAppearing()
         {
             var obj = this.ViewBound;
+            this.OnAppearing();
+        }
+
+        void IPageVisibilityChange.OnDisappearing()
+        {
+            this.OnDisappearing();
+        }
+
+        public virtual void OnAppearing()
+        {
         }
 
         public virtual void OnDisappearing()
         {
         }
-
     }
 }

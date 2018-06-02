@@ -11,16 +11,9 @@ namespace NinjaMvvm.Xam.Samples
         public App()
         {
             InitializeComponent();
+            //  IoCContainer.Initialize(Xamvvm.XamvvmIoC.Instance);
 
-            var factory = new Xamvvm.XamvvmFormsFactory(this);
-            factory.RegisterNavigationPage<MainNavigationPageModel>(() => this.GetPageFromCache<PageModels.MainPageModel>());
-            Xamvvm.XamvvmCore.SetCurrentFactory(factory);
-
-
-          //  IoCContainer.Initialize(Xamvvm.XamvvmIoC.Instance);
-
-            var navPage = this.GetPageFromCache<MainNavigationPageModel>() as NavigationPage;
-            MainPage = navPage;
+            NinjaMvvm.Xam.NavigationComponent.Init<PageModels.MainPageModel>(this);
         }
 
         protected override void OnStart()
@@ -38,7 +31,5 @@ namespace NinjaMvvm.Xam.Samples
             // Handle when your app resumes
         }
     }
-    public class MainNavigationPageModel : NinjaMvvm.Xam.XamPageModelBase
-    {
-    }
+
 }
