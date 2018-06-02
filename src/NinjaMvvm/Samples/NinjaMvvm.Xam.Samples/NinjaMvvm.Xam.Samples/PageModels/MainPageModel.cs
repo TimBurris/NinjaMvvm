@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace NinjaMvvm.Xam.Samples.PageModels
 {
 
-    public class MainPageModel : NinjaMvvm.ViewModelBase
+    public class MainPageModel : NinjaMvvm.Xam.XamPageModelBase
     {
         public MainPageModel()
         {

@@ -22,10 +22,10 @@
   </PropertyGroup>
   <PropertyGroup>
     <UseShortFileNames>True</UseShortFileNames>
-</PropertyGroup>
-<PropertyGroup>
+  </PropertyGroup>
+  <PropertyGroup>
     <IntermediateOutputPath>C:\temp</IntermediateOutputPath>
-</PropertyGroup>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -61,6 +61,9 @@
     <PackageReference Include="Xamarin.Android.Support.v7.CardView" Version="27.0.2" />
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="27.0.2" />
     <PackageReference Include="Xamvvm.Core">
+      <Version>1.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Xamvvm.Forms">
       <Version>1.0.4</Version>
     </PackageReference>
   </ItemGroup>

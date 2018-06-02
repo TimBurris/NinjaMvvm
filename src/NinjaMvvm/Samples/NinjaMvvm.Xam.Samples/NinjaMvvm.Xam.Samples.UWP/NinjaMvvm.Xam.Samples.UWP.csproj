@@ -148,6 +148,9 @@
     <PackageReference Include="Xamvvm.Core">
       <Version>1.0.4</Version>
     </PackageReference>
+    <PackageReference Include="Xamvvm.Forms">
+      <Version>1.0.4</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\NinjaMvvm.Xam\NinjaMvvm.Xam.csproj">

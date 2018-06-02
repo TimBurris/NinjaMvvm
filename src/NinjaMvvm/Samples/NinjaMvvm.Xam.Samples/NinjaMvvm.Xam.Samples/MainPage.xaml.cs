@@ -7,15 +7,12 @@ using Xamarin.Forms;
 
 namespace NinjaMvvm.Xam.Samples
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage : ContentPage, Xamvvm.IBasePage<PageModels.MainPageModel>
     {
         public MainPage()
         {
             InitializeComponent();
 
-            var vm = new PageModels.MainPageModel();
-            this.BindingContext = vm;
-            object obj = vm.ViewBound;
         }
     }
 }

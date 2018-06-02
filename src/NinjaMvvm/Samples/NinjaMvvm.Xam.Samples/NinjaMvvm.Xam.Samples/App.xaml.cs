@@ -1,32 +1,44 @@
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamvvm;
 
-[assembly: XamlCompilation (XamlCompilationOptions.Compile)]
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace NinjaMvvm.Xam.Samples
 {
-	public partial class App : Application
-	{
-		public App ()
-		{
-			InitializeComponent();
+    public partial class App : Application
+    {
+        public App()
+        {
+            InitializeComponent();
 
-			MainPage = new MainPage();
-		}
+            var factory = new Xamvvm.XamvvmFormsFactory(this);
+            factory.RegisterNavigationPage<MainNavigationPageModel>(() => this.GetPageFromCache<PageModels.MainPageModel>());
+            Xamvvm.XamvvmCore.SetCurrentFactory(factory);
 
-		protected override void OnStart ()
-		{
-			// Handle when your app starts
-		}
 
-		protected override void OnSleep ()
-		{
-			// Handle when your app sleeps
-		}
+          //  IoCContainer.Initialize(Xamvvm.XamvvmIoC.Instance);
 
-		protected override void OnResume ()
-		{
-			// Handle when your app resumes
-		}
-	}
+            var navPage = this.GetPageFromCache<MainNavigationPageModel>() as NavigationPage;
+            MainPage = navPage;
+        }
+
+        protected override void OnStart()
+        {
+            // Handle when your app starts
+        }
+
+        protected override void OnSleep()
+        {
+            // Handle when your app sleeps
+        }
+
+        protected override void OnResume()
+        {
+            // Handle when your app resumes
+        }
+    }
+    public class MainNavigationPageModel : NinjaMvvm.Xam.XamPageModelBase
+    {
+    }
 }
