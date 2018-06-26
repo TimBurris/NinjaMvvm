@@ -14,7 +14,6 @@
     <copyright>Copyright 2018</copyright>
     <tags>mvvm wpf relaycommand viewmodel</tags>
     <dependencies>
-      <dependency id="FluentAssertions" version="5.2.0" />
       <dependency id="FluentValidation" version="7.5.2" />
     </dependencies>
   </metadata>
