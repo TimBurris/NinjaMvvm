@@ -6,8 +6,8 @@
     <title>NinjaMvvm.Xam</title>
     <authors>Tim Burris</authors>
     <owners>Tim Burris</owners>
-    <licenseUrl>https://github.com/DumpsterNinja/NinjaMvvm/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/DumpsterNinja/NinjaMvvm</projectUrl>
+    <licenseUrl>https://github.com/TimBurris/NinjaMvvm/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/TimBurris/NinjaMvvm</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A very lightweight Mvvm package providing standard PropertyChanged Notification and ICommand Implementations, along with some common functionality like Navigation and LoadData.</description>
     <releaseNotes></releaseNotes>
