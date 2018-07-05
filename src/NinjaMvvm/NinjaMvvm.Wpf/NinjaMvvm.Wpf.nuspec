@@ -15,7 +15,7 @@
     <tags>mvvm wpf relaycommand viewmodel</tags>
     <dependencies>
       <dependency id="FluentValidation" version="7.5.2" />
-      <dependency id="SimpleLogging.Core" version="0.5.0" />
+      <dependency id="Common.Logging.Core" version="3.4.1" />
     </dependencies>
   </metadata>
   <files>

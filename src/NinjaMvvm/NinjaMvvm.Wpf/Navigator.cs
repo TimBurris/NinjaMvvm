@@ -12,9 +12,9 @@ namespace NinjaMvvm.Wpf
     {
         private TMainWindow _window;
         private readonly Abstractions.IViewModelResolver _viewModelResolver;
-        private readonly SimpleLogging.Core.ILoggingService _logger;
+        private readonly Common.Logging.ILog _logger;
 
-        public Navigator(Abstractions.IViewModelResolver viewModelResolver, SimpleLogging.Core.ILoggingService logger)
+        public Navigator(Abstractions.IViewModelResolver viewModelResolver, Common.Logging.ILog logger)
         {
             _window = (TMainWindow)System.Windows.Application.Current.MainWindow;
             this._viewModelResolver = viewModelResolver;
@@ -29,7 +29,7 @@ namespace NinjaMvvm.Wpf
 
             if (dialog == null)
             {
-                _logger.Warning($@"A ViewModel was requested to be closed but not dialog corresponding the ViewModel was in our list of open dialogs.
+                _logger.Warn($@"A ViewModel was requested to be closed but not dialog corresponding the ViewModel was in our list of open dialogs.
                             While not an error, probably means someone is either closing something that did never actually opened, closing something multiple times, or closed a dialog that was not opened by Navigator.
                             ViewModel was asked to be closed was: {viewModel?.GetType()?.FullName}");
             }
@@ -88,7 +88,7 @@ namespace NinjaMvvm.Wpf
             var dialog = _dialogViews.SingleOrDefault(x => x.Window == window);
 
             if (dialog == null)
-                _logger.Warning($@"A dialog was closed, but that dialog was not found in our list of open dialogs.  
+                _logger.Warn($@"A dialog was closed, but that dialog was not found in our list of open dialogs.  
                             The windows that closed was: {sender.GetType()?.FullName}");
             else
                 CloseDialogView(dialog);
