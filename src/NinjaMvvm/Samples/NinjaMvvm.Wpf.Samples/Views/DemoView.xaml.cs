@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NinjaMvvm.Wpf.Samples
+namespace NinjaMvvm.Wpf.Samples.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DemoView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DemoView : UserControl
     {
-        public MainWindow()
+        public DemoView()
         {
             InitializeComponent();
         }

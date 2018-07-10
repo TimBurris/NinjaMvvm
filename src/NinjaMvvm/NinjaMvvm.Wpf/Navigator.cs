@@ -8,7 +8,7 @@ namespace NinjaMvvm.Wpf
 {
     public class Navigator<TMainWindow, TDialogWindow> : Abstractions.INavigator
         where TDialogWindow : System.Windows.Window, new()
-        where TMainWindow : System.Windows.Window, Abstractions.IMainWindow
+        where TMainWindow : System.Windows.Window
     {
         private TMainWindow _window;
         private readonly Abstractions.IViewModelResolver _viewModelResolver;
@@ -21,6 +21,7 @@ namespace NinjaMvvm.Wpf
 
         private List<DialogView> _dialogViews = new List<DialogView>();
 
+        #region INavigator Implementation
         public void CloseDialog(ViewModelBase viewModel)
         {
             var dialog = _dialogViews.SingleOrDefault(x => x.ViewModel == viewModel);
@@ -43,7 +44,9 @@ namespace NinjaMvvm.Wpf
         public TViewModel NavigateTo<TViewModel>(Action<TViewModel> initAction) where TViewModel : ViewModelBase
         {
             var vm = this.CreateViewModel(initAction);
-            _window.AssignToContent(vm);
+
+            this.BindViewModelToMainWindow(vm, _window);
+            object obj = vm.ViewBound;
 
             return vm;
         }
@@ -60,15 +63,45 @@ namespace NinjaMvvm.Wpf
             var dialogWindow = new TDialogWindow();
             _dialogViews.Add(new DialogView() { ViewModel = viewModel, Window = dialogWindow });
 
-            dialogWindow.DataContext = viewModel;
             dialogWindow.Closed += DialogWindow_Closed;
 
             dialogWindow.Owner = _window;//TODO: maybe the owner should be the "current dialog"?
+
+            this.BindViewModelToDialogWindow(viewModel, dialogWindow);
+            object obj = viewModel.ViewBound;
+
             dialogWindow.ShowDialog();
 
             return viewModel;
         }
 
+        #endregion
+
+        /// <summary>
+        /// assigns the viewmodel to the DataContext of the MainWindow.
+        /// </summary>
+        /// <typeparam name="TViewModel"></typeparam>
+        /// <param name="viewModel"></param>
+        /// <param name="mainWindow"></param>
+        /// <remarks>If you would rather not change the window's datacontext, you can override this method and maybe just assign it to a contentpresenter or something</remarks>
+        protected virtual void BindViewModelToMainWindow<TViewModel>(TViewModel viewModel, TMainWindow mainWindow)
+            where TViewModel : ViewModelBase
+        {
+            mainWindow.DataContext = viewModel;
+        }
+
+        /// <summary>
+        /// assigns the viewmodel to the DataContext of the DialogWindow.
+        /// </summary>
+        /// <typeparam name="TViewModel"></typeparam>
+        /// <param name="viewModel"></param>
+        /// <param name="mainWindow"></param>
+        /// <remarks>If you would rather not change the window's datacontext, you can override this method and maybe just assign it to a contentpresenter or something</remarks>
+        protected virtual void BindViewModelToDialogWindow<TViewModel>(TViewModel viewModel, TDialogWindow dialogWindow)
+            where TViewModel : ViewModelBase
+        {
+            dialogWindow.DataContext = viewModel;
+        }
 
         private TViewModel CreateViewModel<TViewModel>(Action<TViewModel> initAction) where TViewModel : ViewModelBase
         {

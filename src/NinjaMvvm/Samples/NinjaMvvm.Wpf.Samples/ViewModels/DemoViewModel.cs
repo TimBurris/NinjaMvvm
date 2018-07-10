@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace NinjaMvvm.Wpf.Samples.ViewModels
 {
-    public class MainViewModel : WpfViewModelBase
+    public class DemoViewModel : WpfViewModelBase
     {
-        public MainViewModel()
+        public DemoViewModel()
         {
             this.ViewTitle = "This is my Bound view Title";
             this.NumberOfSecondsReloadShouldRun = 3;
@@ -205,9 +205,9 @@ namespace NinjaMvvm.Wpf.Samples.ViewModels
 
         #region Validation
 
-        class MainViewModelValidator : AbstractValidator<MainViewModel>
+        class DemoViewModelValidator : AbstractValidator<DemoViewModel>
         {
-            public MainViewModelValidator()
+            public DemoViewModelValidator()
             {
                 RuleFor(obj => obj.SomeTextValue)
                     .NotEmpty()
@@ -217,7 +217,7 @@ namespace NinjaMvvm.Wpf.Samples.ViewModels
 
         protected override IValidator GetValidator()
         {
-            return new MainViewModelValidator();
+            return new DemoViewModelValidator();
         }
 
         #endregion
