@@ -1,26 +1,26 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>NinjaMvvm.Wpf.Unity</id>
+    <id>NinjaMvvm.Wpf.Ninject</id>
     <version>0.0.1.1</version>
-    <title>NinjaMvvm.Wpf.Unity</title>
+    <title>NinjaMvvm.Wpf.Ninject</title>
     <authors>Tim Burris</authors>
     <owners>Tim Burris</owners>
     <licenseUrl>https://github.com/TimBurris/NinjaMvvm/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/TimBurris/NinjaMvvm</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Helper for auto implementing the NinjaMvvm.Wpf dependencies using Unity</description>
+    <description>Helper for auto implementing the NinjaMvvm.Wpf dependencies using Ninject</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2018</copyright>
     <tags>mvvm wpf relaycommand viewmodel</tags>
     <dependencies>
-      <dependency id="Unity" version="5.8.6" />
+      <dependency id="Ninject" version="3.3.4" />
       <dependency id="NinjaMvvm.Wpf" version="1.0.0" />
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\NinjaMvvm.Wpf.Unity.dll" target="lib\net471\NinjaMvvm.Wpf.Unity.dll" />
-    <file src="bin\Release\NinjaMvvm.Wpf.Unity.xml" target="lib\net471\NinjaMvvm.Wpf.Unity.xml" />
+    <file src="bin\Release\NinjaMvvm.Wpf.Ninject.dll" target="lib\net471\NinjaMvvm.Wpf.Ninject.dll" />
+    <file src="bin\Release\NinjaMvvm.Wpf.Ninject.xml" target="lib\net471\NinjaMvvm.Wpf.Ninject.xml" />
   </files>
 
 </package>
