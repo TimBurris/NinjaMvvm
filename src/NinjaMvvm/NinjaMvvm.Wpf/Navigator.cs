@@ -10,6 +10,7 @@ namespace NinjaMvvm.Wpf
         where TDialogWindow : System.Windows.Window, new()
         where TMainWindow : System.Windows.Window
     {
+        private static List<DialogView> _dialogViews = new List<DialogView>();
         private TMainWindow _window;
         private readonly Abstractions.IViewModelResolver _viewModelResolver;
 
@@ -19,11 +20,11 @@ namespace NinjaMvvm.Wpf
             this._viewModelResolver = viewModelResolver;
         }
 
-        private List<DialogView> _dialogViews = new List<DialogView>();
 
         #region INavigator Implementation
         public void CloseDialog(ViewModelBase viewModel)
         {
+
             var dialog = _dialogViews.SingleOrDefault(x => x.ViewModel == viewModel);
 
             if (dialog == null)
