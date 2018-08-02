@@ -11,15 +11,17 @@ namespace NinjaMvvm.Wpf
         where TMainWindow : System.Windows.Window
     {
         private static List<DialogView> _dialogViews = new List<DialogView>();
-        private TMainWindow _window;
         private readonly Abstractions.IViewModelResolver _viewModelResolver;
 
         public Navigator(Abstractions.IViewModelResolver viewModelResolver)
         {
-            _window = (TMainWindow)System.Windows.Application.Current.MainWindow;
             this._viewModelResolver = viewModelResolver;
         }
 
+        private TMainWindow GetWindow()
+        {
+            return (TMainWindow)System.Windows.Application.Current.MainWindow;
+        }
 
         #region INavigator Implementation
         public void CloseDialog(ViewModelBase viewModel)
@@ -46,7 +48,7 @@ namespace NinjaMvvm.Wpf
         {
             var vm = this.CreateViewModel(initAction);
 
-            this.BindViewModelToMainWindow(vm, _window);
+            this.BindViewModelToMainWindow(vm, this.GetWindow());
             object obj = vm.ViewBound;
 
             return vm;
@@ -66,7 +68,7 @@ namespace NinjaMvvm.Wpf
 
             dialogWindow.Closed += DialogWindow_Closed;
 
-            dialogWindow.Owner = _window;//TODO: maybe the owner should be the "current dialog"?
+            dialogWindow.Owner = this.GetWindow();//TODO: maybe the owner should be the "current dialog"?
 
             this.BindViewModelToDialogWindow(viewModel, dialogWindow);
             object obj = viewModel.ViewBound;
