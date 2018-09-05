@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Abstractions\INavigator.cs" />
     <Compile Include="Abstractions\IViewModelResolver.cs" />
+    <Compile Include="Contols\BindableContentPresenter.cs" />
     <Compile Include="Converters\NegativeBooleanToVisibilityConverter.cs" />
     <Compile Include="Navigator.cs" />
     <Compile Include="RelayCommand.cs" />

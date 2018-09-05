@@ -55,10 +55,16 @@ namespace NinjaMvvm.Wpf.Samples.ViewModels
             this.StampMessage = $"Dataload just completed {DateTime.Now.ToString()}";
             return true;
         }
+		protected override void OnUnloaded()
+		{
+			base.OnUnloaded();
 
-        #region Toggle Command
+			System.Diagnostics.Debug.WriteLine("Demo ViewModel has been unloaded");
+		}
 
-        private RelayCommand _toggleCommand;
+		#region Toggle Command
+
+		private RelayCommand _toggleCommand;
         public RelayCommand ToggleCommand
         {
             get
