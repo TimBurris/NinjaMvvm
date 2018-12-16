@@ -70,6 +70,7 @@ namespace NinjaMvvm
 		/// </summary>
 		protected virtual void OnLoadDesignData() { }
 
+
 		/// <summary>
 		/// specifies whethor not <see cref="ReloadDataAsync"/> will automatically fire when page/control is bound
 		/// </summary>
@@ -129,6 +130,11 @@ namespace NinjaMvvm
 		protected async virtual Task<bool> OnReloadDataAsync(System.Threading.CancellationToken cancellationToken) { return true; }
 
 		/// <summary>
+		/// will be called when an error, not a TaskCanceledException, is thrown during <see cref="OnReloadDataAsync"/>, consumer can get the exception by checking the <see cref="LoadFailedException"/> property
+		/// </summary>
+		protected virtual void OnReloadDataFailed() { }
+
+		/// <summary>
 		/// Intitiates an error safe asyncronous invocation of <see cref="OnReloadDataAsync(System.Threading.CancellationToken)"/>
 		/// </summary>
 		/// <returns></returns>
@@ -168,6 +174,7 @@ namespace NinjaMvvm
 			catch (Exception ex)
 			{
 				this.LoadFailedException = ex;
+				this.OnReloadDataFailed();
 			}
 			finally
 			{
