@@ -24,7 +24,7 @@ namespace NinjaMvvm.Wpf
 		}
 
 		#region INavigator Implementation
-		public void CloseDialog(ViewModelBase viewModel)
+		public virtual void CloseDialog(ViewModelBase viewModel)
 		{
 
 			var dialog = _dialogViews.SingleOrDefault(x => x.ViewModel == viewModel);
@@ -39,12 +39,12 @@ namespace NinjaMvvm.Wpf
 				CloseDialogView(dialog);
 		}
 
-		public TViewModel NavigateTo<TViewModel>() where TViewModel : ViewModelBase
+		public virtual TViewModel NavigateTo<TViewModel>() where TViewModel : ViewModelBase
 		{
 			return this.NavigateTo<TViewModel>(initAction: null);
 		}
 
-		public TViewModel NavigateTo<TViewModel>(Action<TViewModel> initAction) where TViewModel : ViewModelBase
+		public virtual TViewModel NavigateTo<TViewModel>(Action<TViewModel> initAction) where TViewModel : ViewModelBase
 		{
 			var vm = this.CreateViewModel(initAction);
 
@@ -54,12 +54,12 @@ namespace NinjaMvvm.Wpf
 			return vm;
 		}
 
-		public TViewModel ShowDialog<TViewModel>() where TViewModel : ViewModelBase
+		public virtual TViewModel ShowDialog<TViewModel>() where TViewModel : ViewModelBase
 		{
 			return ShowDialog<TViewModel>(initAction: null);
 		}
 
-		public TViewModel ShowDialog<TViewModel>(Action<TViewModel> initAction) where TViewModel : ViewModelBase
+		public virtual TViewModel ShowDialog<TViewModel>(Action<TViewModel> initAction) where TViewModel : ViewModelBase
 		{
 			var viewModel = this.CreateViewModel(initAction);
 
