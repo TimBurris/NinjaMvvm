@@ -11,10 +11,10 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Helper for auto implementing the NinjaMvvm.Wpf dependencies using Unity</description>
     <releaseNotes></releaseNotes>
-    <copyright>Copyright 2018</copyright>
+    <copyright>Copyright 2019</copyright>
     <tags>mvvm wpf relaycommand viewmodel</tags>
     <dependencies>
-      <dependency id="Unity" version="5.8.6" />
+      <dependency id="Unity" version="5.9.7" />
       <dependency id="NinjaMvvm.Wpf" version="1.0.0" />
     </dependencies>
   </metadata>
