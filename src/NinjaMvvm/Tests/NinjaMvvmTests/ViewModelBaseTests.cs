@@ -164,5 +164,68 @@ namespace NinjaMvvmTests
             isSTA.Should().BeTrue();
 
         }
+
+
+
+
+        [TestMethod]
+        public void OnReloadDataAsync_prevents_duplicate_reload()
+        {
+            //*************  arrange  ******************
+            int i = 0;
+            var mockvm = new Mock<TestViewModel>();
+            mockvm.CallBase = true;
+            mockvm.Object.PreventDuplicateReload = true;
+
+            mockvm.Setup(m => m.Exposed_OnReloadDataAsync(It.IsAny<System.Threading.CancellationToken>()))
+                .Returns<System.Threading.CancellationToken>(async (c) =>
+                {
+                    i++;
+                    if (i == 1)
+                    {
+                        await mockvm.Object.Exposed_ReloadDataAsync();
+                    }
+                    try { await Task.Delay(5000, c); } catch { }
+                    return false;
+                });
+
+            //*************    act    ******************
+            var x = mockvm.Object.ViewBound;
+            Task.Delay(300).Wait();
+
+            //*************  assert   ******************
+            i.Should().Be(1);
+        }
+
+
+
+        [TestMethod]
+        public void OnReloadDataAsync_allows_duplicate_reload()
+        {
+            //*************  arrange  ******************
+            int i = 0;
+            var mockvm = new Mock<TestViewModel>();
+            mockvm.CallBase = true;
+            mockvm.Object.PreventDuplicateReload = false;
+
+            mockvm.Setup(m => m.Exposed_OnReloadDataAsync(It.IsAny<System.Threading.CancellationToken>()))
+                .Returns<System.Threading.CancellationToken>(async (c) =>
+                {
+                    i++;
+                    if (i == 1)
+                    {
+                        await mockvm.Object.Exposed_ReloadDataAsync();
+                    }
+                    try { await Task.Delay(5000, c); } catch { }
+                    return false;
+                });
+
+            //*************    act    ******************
+            var x = mockvm.Object.ViewBound;
+            Task.Delay(300).Wait();
+
+            //*************  assert   ******************
+            i.Should().Be(2);
+        }
     }
 }

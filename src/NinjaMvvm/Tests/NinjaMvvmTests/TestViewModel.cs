@@ -50,9 +50,9 @@ namespace NinjaMvvmTests
         {
             this.CancelReloadDataAsync();
         }
-        public void Exposed_ReloadDataAsync()
+        public async Task Exposed_ReloadDataAsync()
         {
-            this.ReloadDataAsync();
+            await this.ReloadDataAsync();
         }
     }
 }
