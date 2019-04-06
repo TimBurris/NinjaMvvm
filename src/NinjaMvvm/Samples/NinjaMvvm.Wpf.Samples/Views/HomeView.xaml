@@ -13,5 +13,6 @@
     <StackPanel>
         <Button Width="200" Margin="20" Command="{Binding NavigateToDemoCommand}" Content="Navigate To Demo"/>
         <Button Width="200" Command="{Binding ShowDemoAsDialogCommand}" Content="Show Demo as Dialog"/>
+        <Button Width="200" Command="{Binding ShowDemoAsModalDialogCommand}" Content="Show Demo as Modal Dialog"/>
     </StackPanel>
 </UserControl>

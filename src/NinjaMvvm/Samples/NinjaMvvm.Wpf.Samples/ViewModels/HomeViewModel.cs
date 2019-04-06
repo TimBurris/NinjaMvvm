@@ -26,6 +26,16 @@ namespace NinjaMvvm.Wpf.Samples.ViewModels
 
         public void ShowDemoAsDialog()
         {
+            _navigator.ShowDialog<DemoViewModel>(initAction: (vm) => vm.SomeTextValue = "inited text value", modal: false);
+        }
+
+        #endregion
+        #region ShowDemoAsModalDialog Command
+
+        public NinjaMvvm.Wpf.RelayCommand ShowDemoAsModalDialogCommand => new NinjaMvvm.Wpf.RelayCommand((param) => this.ShowDemoAsModalDialog());
+
+        public void ShowDemoAsModalDialog()
+        {
             _navigator.ShowDialog<DemoViewModel>(initAction: (vm) => vm.SomeTextValue = "inited text value");
         }
 
