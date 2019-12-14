@@ -38,17 +38,32 @@ namespace NinjaMvvm
         {
             get
             {
-                //don't fire in design mode
-                if (this.IsInDesignMode())
-                    return null;
-
-                if (this.LoadWhenBound)
-                    this.ReloadDataAsync();
-
+                this.ViewHasBeenBound();
                 return null;
             }
             set { }
         }
+
+        /// <summary>
+        /// notifies the viewmodel that it has been bound to it's view 
+        /// </summary>
+        /// <remarks>This method is the same as binding to the <see cref="ViewBound"/> Property</remarks>
+        public void ViewHasBeenBound()
+        {
+            //don't fire in design mode
+            if (this.IsInDesignMode())
+                return;
+
+            this.OnBound();
+
+            if (this.LoadWhenBound)
+                this.ReloadDataAsync();
+
+        }
+
+        /// <summary>
+        /// notifies the viewmodel that it has been unbound from it's view
+        /// </summary>
         public void ViewHasBeenUnbound()
         {
             this.OnUnloaded();
@@ -62,6 +77,11 @@ namespace NinjaMvvm
         {
             return false;
         }
+
+        /// <summary>
+        /// will be called when the ViewModel is bound to it's view
+        /// </summary>
+        protected virtual void OnBound() { }
 
         /// <summary>
         /// will be called when the ViewModel is removed from it's bound view
