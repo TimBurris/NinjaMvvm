@@ -54,5 +54,13 @@ namespace NinjaMvvmTests
         {
             await this.ReloadDataAsync();
         }
+
+
+        public string SimpleTestProperty
+        {
+            get { return GetField<string>(); }
+            set { SetField(value); }
+        }
+
     }
 }

@@ -13,6 +13,34 @@ namespace NinjaMvvm
     public class NotificationObservableCollection<T> : ObservableCollection<T>
      where T : INotifyPropertyChanged
     {
+        public NotificationObservableCollection()
+        {
+
+        }
+
+        public NotificationObservableCollection(IEnumerable<T> collection)
+            : base(collection)
+        {
+            if (collection != null)
+            {
+                foreach (var item in collection)
+                {
+                    item.PropertyChanged += item_PropertyChanged;
+                }
+            }
+        }
+
+        public NotificationObservableCollection(List<T> collection)
+            : base(collection)
+        {
+            if (collection != null)
+            {
+                foreach (var item in collection)
+                {
+                    item.PropertyChanged += item_PropertyChanged;
+                }
+            }
+        }
         #region Property change notification
 
         public event ItemPropertyChangedEventHandler<T> ItemPropertyChangedEvent;
