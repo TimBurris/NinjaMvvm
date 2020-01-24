@@ -26,6 +26,16 @@ namespace NinjaMvvm.Wpf
             add { System.Windows.Input.CommandManager.RequerySuggested += value; }
             remove { System.Windows.Input.CommandManager.RequerySuggested -= value; }
         }
+
+        public void Execute(T parameter)
+        {
+            base.Execute((object)parameter);
+        }
+
+        public bool CanExecute(T parameter)
+        {
+            return base.CanExecute((object)parameter);
+        }
     }
 
     /// <summary>
