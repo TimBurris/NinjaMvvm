@@ -14,14 +14,14 @@
     <copyright>Copyright 2018</copyright>
     <tags>mvvm wpf relaycommand viewmodel</tags>
     <dependencies>
-      <dependency id="FluentValidation" version="7.5.2" />
+      <dependency id="FluentValidation" version="8.6.1" />
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\NinjaMvvm.dll" target="lib\net471\NinjaMvvm.dll" />
-    <file src="bin\Release\NinjaMvvm.xml" target="lib\net471\NinjaMvvm.xml" />
-    <file src="bin\Release\NinjaMvvm.Wpf.dll" target="lib\net471\NinjaMvvm.Wpf.dll" />
-    <file src="bin\Release\NinjaMvvm.Wpf.xml" target="lib\net471\NinjaMvvm.Wpf.xml" />
+    <file src="bin\Release\NinjaMvvm.dll" target="lib\net472\NinjaMvvm.dll" />
+    <file src="bin\Release\NinjaMvvm.xml" target="lib\net472\NinjaMvvm.xml" />
+    <file src="bin\Release\NinjaMvvm.Wpf.dll" target="lib\net472\NinjaMvvm.Wpf.dll" />
+    <file src="bin\Release\NinjaMvvm.Wpf.xml" target="lib\net472\NinjaMvvm.Wpf.xml" />
   </files>
 
 </package>

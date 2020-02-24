@@ -14,9 +14,9 @@
     <copyright>Copyright 2018</copyright>
     <tags>mvvm xamarin relaycommand viewmodel</tags>
     <dependencies>
-      <dependency id="Xamvvm.Forms" version="1.0.4" />
-      <dependency id="Xamvvm.Core" version="1.0.4" />
-      <dependency id="Xamarin.Forms" version="3.0.0" />
+      <dependency id="Xamvvm.Forms" version="1.0.5" />
+      <dependency id="Xamvvm.Core" version="1.0.5" />
+      <dependency id="Xamarin.Forms" version="4.4.0" />
     </dependencies>
   </metadata>
   <files>
