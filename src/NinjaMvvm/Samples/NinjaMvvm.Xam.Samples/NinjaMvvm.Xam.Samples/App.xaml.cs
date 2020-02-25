@@ -2,6 +2,7 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamvvm;
+using Unity;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace NinjaMvvm.Xam.Samples
@@ -12,10 +13,21 @@ namespace NinjaMvvm.Xam.Samples
         {
             InitializeComponent();
             //  IoCContainer.Initialize(Xamvvm.XamvvmIoC.Instance);
+            var container = this.InitIoC();
 
-            NinjaMvvm.Xam.NavigationComponent.Init<PageModels.MainPageModel>(this);
+
+            var navigator = container.Resolve<Abstractions.INavigator>();
+
+            NinjaMvvm.Xam.NavigationComponent.Init<PageModels.MainPageModel>(this, navigator);
         }
+        private IUnityContainer InitIoC()
+        {
+            var container = new UnityContainer();
+            NinjaMvvm.Xam.UnityIoC.Init(container);
 
+
+            return container;
+        }
         protected override void OnStart()
         {
             // Handle when your app starts

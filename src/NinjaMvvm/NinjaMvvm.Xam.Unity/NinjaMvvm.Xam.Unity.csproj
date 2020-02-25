@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Unity.Abstractions" Version="5.11.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NinjaMvvm.Xam\NinjaMvvm.Xam.csproj" />
+    <ProjectReference Include="..\NinjaMvvm\NinjaMvvm.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="NinjaMvvm.Xam.Unity.nuspec">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -3,7 +3,7 @@ using Xamvvm;
 
 namespace NinjaMvvm.Xam
 {
-    public class XamPageModelBase : NinjaMvvm.ViewModelBase, Xamvvm.IBasePageModel, Xamvvm.IPageVisibilityChange
+    public class XamPageModelBase : NinjaMvvm.ViewModelBase, Abstractions.IPageModel, Xamvvm.IPageVisibilityChange
     {
         void IPageVisibilityChange.OnAppearing()
         {

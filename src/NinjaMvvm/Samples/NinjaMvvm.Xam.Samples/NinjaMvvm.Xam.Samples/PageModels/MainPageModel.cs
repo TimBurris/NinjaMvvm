@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NinjaMvvm.Xam.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -9,10 +10,13 @@ namespace NinjaMvvm.Xam.Samples.PageModels
 
     public class MainPageModel : NinjaMvvm.Xam.XamPageModelBase
     {
-        public MainPageModel()
+        private readonly INavigator _navigator;
+
+        public MainPageModel(Abstractions.INavigator navigator)
         {
             this.ViewTitle = "This is my Bound view Title";
             this.NumberOfSecondsReloadShouldRun = 3;
+            _navigator = navigator;
         }
 
         public bool IsStampAllowed
@@ -41,12 +45,30 @@ namespace NinjaMvvm.Xam.Samples.PageModels
             set { SetField(value); }
         }
 
+        public string ValueToSend
+        {
+            get { return GetField<string>(); }
+            set { SetField(value); }
+        }
+
         protected override async Task<bool> OnReloadDataAsync(CancellationToken cancellationToken)
         {
             await Task.Delay(this.NumberOfSecondsReloadShouldRun * 1000, cancellationToken);
             this.StampMessage = $"Dataload just completed {DateTime.Now.ToString()}";
             return true;
         }
+
+
+        #region OpenAnotherPage Command
+
+        public NinjaMvvm.Xam.RelayCommand OpenAnotherPageCommand => new NinjaMvvm.Xam.RelayCommand((param) => this.OpenAnotherPage());
+
+        public void OpenAnotherPage()
+        {
+            _navigator.PushAsync<AnotherPageModel>(x => x.Init(incomingValue: this.ValueToSend));
+        }
+
+        #endregion
 
 
         #region Toggle Command

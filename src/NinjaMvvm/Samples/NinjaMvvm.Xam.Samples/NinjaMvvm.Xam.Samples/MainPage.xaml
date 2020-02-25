@@ -33,6 +33,8 @@
             <Label Text="We are busy loading stuff.  come back later"/>
             <Button Command="{Binding CancelReloadCommand}" Text="Cancel" Margin="10" />
         </StackLayout>
+        <Entry Placeholder="Value To pass to another page" Text="{Binding ValueToSend}"/>
+        <Button Text="Open another page" Command="{Binding OpenAnotherPageCommand}"/>
     </StackLayout>
 
 </ContentPage>

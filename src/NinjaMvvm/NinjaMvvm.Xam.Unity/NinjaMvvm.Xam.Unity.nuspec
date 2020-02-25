@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>NinjaMvvm.Xam.Unity</id>
+    <version>0.0.1.1</version>
+    <title>NinjaMvvm.Xam.Unity</title>
+    <authors>Tim Burris</authors>
+    <owners>Tim Burris</owners>
+    <licenseUrl>https://github.com/TimBurris/NinjaMvvm/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/TimBurris/NinjaMvvm</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Helper for auto implementing the NinjaMvvm.Xam dependencies using Unity</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>mvvm xamarin ninjamvvm unity relaycommand viewmodel</tags>
+    <dependencies>
+      <dependency id="Unity" version="5.9.7" />
+      <dependency id="NinjaMvvm.Xam" version="1.0.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\NinjaMvvm.Xam.Unity.dll" target="lib\net471\NinjaMvvm.Xam.Unity.dll" />
+    <file src="bin\Release\NinjaMvvm.Xam.Unity.xml" target="lib\net471\NinjaMvvm.Xam.Unity.xml" />
+  </files>
+
+</package>

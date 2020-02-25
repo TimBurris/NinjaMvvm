@@ -10,13 +10,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Unity" Version="5.11.3" />
     <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640" />
     <PackageReference Include="Xamvvm.Core" Version="1.0.5" />
     <PackageReference Include="Xamvvm.Forms" Version="1.0.5" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\NinjaMvvm.Xam.Unity\NinjaMvvm.Xam.Unity.csproj" />
     <ProjectReference Include="..\..\..\NinjaMvvm.Xam\NinjaMvvm.Xam.csproj" />
     <ProjectReference Include="..\..\..\NinjaMvvm\NinjaMvvm.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="AnotherPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PopupPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

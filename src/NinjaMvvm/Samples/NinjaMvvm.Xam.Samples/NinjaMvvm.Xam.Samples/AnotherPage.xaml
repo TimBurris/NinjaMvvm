@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="NinjaMvvm.Xam.Samples.AnotherPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Well done good sir, you've sucessfully naviaged to page 2, the value you sent in was:"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding IncomingValue}" TextColor="Blue" 
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand" />
+            <BoxView BackgroundColor="Black" HeightRequest="1" Margin="20,10"/>
+            <Button Text="Give me a popup!" Command="{Binding ShowAPopupCommand}"></Button>
+            <Button Text="Show me an Alert" Command="{Binding ShowAlertCommand}"></Button>
+            <Button Text="Go To Main Page" Command="{Binding GotoMainCommand}"></Button>
+            <Label Text="{Binding SelectedAlertActionText}" 
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace NinjaMvvm.Xam.Samples
 {
-    public partial class MainPage : ContentPage, Abstractions.IPage<PageModels.MainPageModel>
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class PopupPage : ContentPage, Abstractions.IPage<PageModels.PopupPageModel>
     {
-        public MainPage()
+        public PopupPage()
         {
             InitializeComponent();
-
         }
     }
 }

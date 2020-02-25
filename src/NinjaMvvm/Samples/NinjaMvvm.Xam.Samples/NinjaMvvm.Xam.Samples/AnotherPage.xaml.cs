@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace NinjaMvvm.Xam.Samples
 {
-    public partial class MainPage : ContentPage, Abstractions.IPage<PageModels.MainPageModel>
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AnotherPage : ContentPage, Abstractions.IPage<PageModels.AnotherPageModel>
     {
-        public MainPage()
+        public AnotherPage()
         {
             InitializeComponent();
-
         }
     }
 }
