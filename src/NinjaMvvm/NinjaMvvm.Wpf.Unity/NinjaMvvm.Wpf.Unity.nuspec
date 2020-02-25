@@ -19,8 +19,8 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\NinjaMvvm.Wpf.Unity.dll" target="lib\net471\NinjaMvvm.Wpf.Unity.dll" />
-    <file src="bin\Release\NinjaMvvm.Wpf.Unity.xml" target="lib\net471\NinjaMvvm.Wpf.Unity.xml" />
+    <file src="bin\Release\NinjaMvvm.Wpf.Unity.dll" target="lib\net472\NinjaMvvm.Wpf.Unity.dll" />
+    <file src="bin\Release\NinjaMvvm.Wpf.Unity.xml" target="lib\net472\NinjaMvvm.Wpf.Unity.xml" />
   </files>
 
 </package>
