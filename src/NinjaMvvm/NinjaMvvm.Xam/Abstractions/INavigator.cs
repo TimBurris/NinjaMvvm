@@ -72,10 +72,16 @@ namespace NinjaMvvm.Xam.Abstractions
         Task DisplayAlert(string title, string message, string cancel);
 
         /// <summary>
-        /// used at begining of app to assign the base page, all navigation will drive from there
+        /// changes the Xamarin Root page.  all other navigation functionality drives from this page
         /// </summary>
         /// <param name="page"></param>
-        void SetRootPage(Xamarin.Forms.NavigationPage page);
+        void SetRootPage(Xamarin.Forms.Page page);
+
+        /// <summary>
+        /// changes the Xamarin Root page.  all other navigation functionality drives from this page
+        /// </summary>
+        /// <typeparam name="TPageModel"></typeparam>
+        void SetRootPage<TPageModel>() where TPageModel : class, IPageModel;
 
         /// <summary>
         ///     Displays a native platform action sheet, allowing the application user to choose from several buttons.
