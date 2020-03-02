@@ -23,7 +23,7 @@ namespace NinjaMvvm
         /// <summary>
         /// Common utility property that can be used by UI to know the viewmodel's displayname/title
         /// </summary>
-        public string ViewTitle
+        public virtual string ViewTitle
         {
             get { return GetField<string>(); }
             set { SetField(value); }
@@ -109,6 +109,25 @@ namespace NinjaMvvm
         /// Isbusy is automatically turned on and off during <see cref="ReloadDataAsync"/>
         /// </remarks>
         public bool IsBusy
+        {
+            get { return GetField<bool>(); }
+            set { SetField(value); }
+        }
+
+        /// <summary>
+        /// Indicates whether or not <see cref="ReloadDataAsync"/> has ever been executed Successfully (without error) on this ViewModel
+        /// </summary>
+        public bool HasEverBeenSuccessfullyLoaded
+        {
+            get { return GetField<bool>(); }
+            set { SetField(value); }
+        }
+
+
+        /// <summary>
+        /// Indicates whether or not <see cref="ReloadDataAsync"/> has ever been executed on this ViewModel, regardless of whether it failed during load
+        /// </summary>
+        public bool HasEverBeenLoaded
         {
             get { return GetField<bool>(); }
             set { SetField(value); }
@@ -213,6 +232,8 @@ namespace NinjaMvvm
             {
 
                 var result = await OnReloadDataAsync(localCancellationTokenSource.Token);
+
+                this.HasEverBeenSuccessfullyLoaded = true;
                 wasCancelled = localCancellationTokenSource.IsCancellationRequested;
                 //if cancel we still say successful because it was not a fail/error
                 wasSuccessful = wasCancelled || result;
@@ -230,6 +251,7 @@ namespace NinjaMvvm
             }
             finally
             {
+                this.HasEverBeenLoaded = true;
                 this.IsReloading = false;
                 this.IsBusy = false;
                 this.LoadFailed = !wasSuccessful;
