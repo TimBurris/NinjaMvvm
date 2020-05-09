@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>NinjaMvvm.Blazor</id>
+    <version>0.0.1.1</version>
+    <title>NinjaMvvm.Blazor</title>
+    <authors>Tim Burris</authors>
+    <owners>Tim Burris</owners>
+    <licenseUrl>https://github.com/TimBurris/NinjaMvvm/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/TimBurris/NinjaMvvm</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A very lightweight Mvvm package providing standard PropertyChanged Notification and ICommand Implementations, along with some common functionality like Navigation and LoadData.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>mvvm blazor relaycommand viewmodel</tags>
+  </metadata>
+  <files>
+    <file src="bin\Release\netstandard2.1\NinjaMvvm.dll" target="lib\netstandard2.0\NinjaMvvm.dll" />
+    <file src="bin\Release\netstandard2.1\NinjaMvvm.xml" target="lib\netstandard2.0\NinjaMvvm.xml" />
+    <file src="bin\Release\netstandard2.1\NinjaMvvm.Blazor.dll" target="lib\netstandard2.1\NinjaMvvm.Blazor.dll" />
+    <file src="bin\Release\netstandard2.1\NinjaMvvm.Blazor.xml" target="lib\netstandard2.1\NinjaMvvm.Blazor.xml" />
+  </files>
+
+</package>
