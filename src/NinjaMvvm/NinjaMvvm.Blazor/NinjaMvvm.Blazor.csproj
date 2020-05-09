@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard2.1\NinjaMvvm.Xam.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\netstandard2.1\NinjaMvvm.Blazor.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
