@@ -48,10 +48,15 @@ namespace NinjaMvvm.Wpf
         {
             var vm = this.CreateViewModel(initAction);
 
-            this.BindViewModelToMainWindow(vm, this.GetWindow());
-            object obj = vm.ViewBound;
+            this.NavigateTo(vm);
 
             return vm;
+        }
+        public virtual void NavigateTo<TViewModel>(TViewModel viewModel) where TViewModel : ViewModelBase
+        {
+            this.BindViewModelToMainWindow(viewModel, this.GetWindow());
+            //this forces the viewmodel to fire it's binding routines
+            object obj = viewModel.ViewBound;
         }
 
         public virtual TViewModel ShowDialog<TViewModel>() where TViewModel : ViewModelBase
@@ -71,6 +76,13 @@ namespace NinjaMvvm.Wpf
         {
             var viewModel = this.CreateViewModel(initAction);
 
+            this.ShowDialog(viewModel, modal);
+
+            return viewModel;
+        }
+
+        public virtual void ShowDialog<TViewModel>(TViewModel viewModel, bool modal) where TViewModel : ViewModelBase
+        {
             var dialogWindow = new TDialogWindow();
             _dialogViews.Add(new DialogView() { ViewModel = viewModel, Window = dialogWindow });
 
@@ -85,10 +97,7 @@ namespace NinjaMvvm.Wpf
                 dialogWindow.ShowDialog();
             else
                 dialogWindow.Show();
-
-            return viewModel;
         }
-
         #endregion
 
         /// <summary>

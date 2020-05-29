@@ -37,12 +37,26 @@ namespace NinjaMvvm.Wpf.Abstractions
         TViewModel ShowDialog<TViewModel>(Action<TViewModel> initAction, bool modal) where TViewModel : ViewModelBase;
 
         /// <summary>
+        /// opens a new view using an already created instance of TViewModel
+        /// </summary>
+        /// <typeparam name="TViewModel"></typeparam>
+        /// <param name="viewModel"></param>
+        /// <param name="modal"></param>
+        void ShowDialog<TViewModel>(TViewModel viewModel, bool modal) where TViewModel : ViewModelBase;
+
+        /// <summary>
         /// closes a view
         /// </summary>
         /// <param name="viewModel"></param>
         void CloseDialog(ViewModelBase viewModel);
 
         /// <summary>
+        /// navigates to a viewmodel
+        /// </summary>
+        /// <typeparam name="TViewModel"></typeparam>
+        /// <returns></returns>
+        void NavigateTo<TViewModel>(TViewModel viewModel) where TViewModel : ViewModelBase;
+
         /// navigates to a viewmodel
         /// </summary>
         /// <typeparam name="TViewModel"></typeparam>
