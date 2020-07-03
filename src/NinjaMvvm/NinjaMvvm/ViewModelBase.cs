@@ -142,7 +142,20 @@ namespace NinjaMvvm
         public bool IsReloading
         {
             get { return GetField<bool>(); }
-            set { SetField(value); }
+            set
+            {
+                if (SetField(value))
+                {
+                    if (value)
+                    {
+                        this.ReloadStarted?.Invoke(this, EventArgs.Empty);
+                    }
+                    else
+                    {
+                        this.ReloadCompleted?.Invoke(this, EventArgs.Empty);
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -182,6 +195,10 @@ namespace NinjaMvvm
         }
 
         #region Reload Data Functionality
+
+        public event EventHandler ReloadStarted;
+        public event EventHandler ReloadCompleted;
+
         private System.Threading.CancellationTokenSource _currentCancellationTokenSource;
 
 
