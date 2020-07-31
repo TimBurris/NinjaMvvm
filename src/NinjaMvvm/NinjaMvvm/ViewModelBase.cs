@@ -268,11 +268,13 @@ namespace NinjaMvvm
             }
             finally
             {
+                //set faile/cancel before turning off isloading so that peeps responding to reloadcomplete(fired by isreloading=false) 
+                this.LoadFailed = !wasSuccessful;
+                this.LoadCancelled = wasCancelled;
+
                 this.HasEverBeenLoaded = true;
                 this.IsReloading = false;
                 this.IsBusy = false;
-                this.LoadFailed = !wasSuccessful;
-                this.LoadCancelled = wasCancelled;
             }
         }
 
