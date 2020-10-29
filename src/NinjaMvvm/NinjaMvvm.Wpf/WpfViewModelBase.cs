@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FluentValidation.Internal;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -44,8 +46,11 @@ namespace NinjaMvvm.Wpf
                 if (changed && value)
                 {
                     //once showErrors gets turned on, we have to fire onchanged events for all properties that have errors.  this is to force WPF to rebind and check for errors that are now there
-                    this.GetValidator()?.Validate(this)?.Errors.ToList()
-                        .ForEach(error => this.OnPropertyChanged(propertyName: error.PropertyName));
+                    this.GetValidator()
+                        ?.Validate(new FluentValidation.ValidationContext<WpfViewModelBase>(this))
+                        ?.Errors
+                        ?.ToList()
+                        ?.ForEach(error => this.OnPropertyChanged(propertyName: error.PropertyName));
                 }
             }
         }
@@ -56,7 +61,7 @@ namespace NinjaMvvm.Wpf
         /// <returns></returns>
         public FluentValidation.Results.ValidationResult GetValidationResult()
         {
-            return GetValidator()?.Validate(this);
+            return GetValidator()?.Validate(new FluentValidation.ValidationContext<WpfViewModelBase>(this));
         }
 
         #region IDataErrorInfo
@@ -67,7 +72,6 @@ namespace NinjaMvvm.Wpf
         {
             get { return null; }
         }
-
         /// <summary>
         /// Implementation of <see cref="System.ComponentModel.IDataErrorInfo"/>
         /// </summary>
@@ -85,7 +89,7 @@ namespace NinjaMvvm.Wpf
                     return null;
 
                 //using validationContext we can tell FluentValidation to only validatie the field specified
-                var context = new FluentValidation.ValidationContext(this,
+                var context = new FluentValidation.ValidationContext<WpfViewModelBase>(this,
                      new FluentValidation.Internal.PropertyChain(),
                      new FluentValidation.Internal.MemberNameValidatorSelector(new string[] { columnName }));
 
