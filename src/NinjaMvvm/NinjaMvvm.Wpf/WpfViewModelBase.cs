@@ -59,7 +59,7 @@ namespace NinjaMvvm.Wpf
         /// Performs Validation of the ViewMode using the <see cref="GetValidator"/>
         /// </summary>
         /// <returns></returns>
-        public FluentValidation.Results.ValidationResult GetValidationResult()
+        public virtual FluentValidation.Results.ValidationResult GetValidationResult()
         {
             return GetValidator()?.Validate(new FluentValidation.ValidationContext<WpfViewModelBase>(this));
         }
