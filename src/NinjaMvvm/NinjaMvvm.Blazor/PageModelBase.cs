@@ -1,8 +1,7 @@
-﻿using System;
-
-namespace NinjaMvvm.Blazor
+﻿namespace NinjaMvvm.Blazor
 {
-    public class PageModelBase : NinjaMvvm.ViewModelBase
+    public class PageModelBase : BlazorViewModelBase
     {
     }
+
 }
