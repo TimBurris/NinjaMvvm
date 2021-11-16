@@ -207,12 +207,22 @@ namespace NinjaMvvm
         /// </summary>
         /// <param name="cancellationToken">Cancellation token used to cancel your async loading methods</param>
         /// <returns></returns>
-        protected async virtual Task<bool> OnReloadDataAsync(System.Threading.CancellationToken cancellationToken) { return true; }
+        protected virtual Task<bool> OnReloadDataAsync(System.Threading.CancellationToken cancellationToken) { return Task.FromResult(true); }
 
         /// <summary>
         /// will be called when an error, not a TaskCanceledException, is thrown during <see cref="OnReloadDataAsync"/>, consumer can get the exception by checking the <see cref="LoadFailedException"/> property
         /// </summary>
         protected virtual void OnReloadDataFailed() { }
+
+        /// <summary>
+        /// will be called when <see cref="OnReloadDataAsync"/> completes without exception and without being canceled
+        /// </summary>
+        protected virtual void OnReloadDataSucceeded() { }
+
+        /// <summary>
+        /// will be called when <see cref="OnReloadDataAsync"/> is canceled
+        /// </summary>
+        protected virtual void OnReloadDataCanceled() { }
 
         /// <summary>
         /// Intitiates an error safe asyncronous invocation of <see cref="OnReloadDataAsync(System.Threading.CancellationToken)"/>
@@ -264,11 +274,23 @@ namespace NinjaMvvm
             catch (Exception ex)
             {
                 this.LoadFailedException = ex;
-                this.OnReloadDataFailed();
             }
             finally
             {
-                //set faile/cancel before turning off isloading so that peeps responding to reloadcomplete(fired by isreloading=false) 
+                if (wasCancelled)
+                {
+                    this.OnReloadDataCanceled();
+                }
+                else if (wasSuccessful)
+                {
+                    this.OnReloadDataSucceeded();
+                }
+                else
+                {
+                    this.OnReloadDataFailed();
+                }
+
+                //set fail/cancel before turning off isloading so that peeps responding to reloadcomplete(fired by isreloading=false) 
                 this.LoadFailed = !wasSuccessful;
                 this.LoadCancelled = wasCancelled;
 
