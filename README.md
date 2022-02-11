@@ -108,3 +108,8 @@ if (!validateResult.IsValid)
 I had an Implementation of `INotifyPropertyChanged` that I had been using for more than a decade;  I was inspired by the solution in [xamvvm](https://github.com/xamvvm/xamvvm), so I am now using a slightly modified version.
 
 [FluentValidation](https://github.com/JeremySkinner/FluentValidation) if you aren't using it for ViewModel validation you should definitely check it out.
+
+# Want to say thank you?
+If something in this repo has helped you solve a problem, or made you more efficient, I welcome your support!
+
+<a href="https://www.buymeacoffee.com/timburris" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
