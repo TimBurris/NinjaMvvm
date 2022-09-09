@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>NinjaMvvm</id>
+    <version>1.0.0.0</version>
+    <title>NinjaMvvm</title>
+    <authors>Tim Burris</authors>
+    <owners>Tim Burris</owners>
+    <licenseUrl>https://github.com/TimBurris/NinjaMvvm/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/TimBurris/NinjaMvvm</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A very lightweight Mvvm package providing standard PropertyChanged Notification and ICommand Implementations, along with some common functionality like LoadData.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2022</copyright>
+    <tags>mvvm relaycommand viewmodel</tags>
+  </metadata>
+  <files>
+    <file src="bin\Release\netstandard2.0\NinjaMvvm.dll" target="lib\netstandard2.0\NinjaMvvm.dll" />
+    <file src="bin\Release\netstandard2.0\NinjaMvvm.xml" target="lib\netstandard2.0\NinjaMvvm.xml" />
+  </files>
+
+</package>
