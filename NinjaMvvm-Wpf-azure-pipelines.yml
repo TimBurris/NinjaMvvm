@@ -23,6 +23,7 @@ steps:
     versioningScheme: byEnvVar
     versionEnvVar: packageVersion
     outputDir: '$(Build.ArtifactStagingDirectory)'
+    configuration: Release
 
 - task: PublishBuildArtifacts@1
   inputs:
