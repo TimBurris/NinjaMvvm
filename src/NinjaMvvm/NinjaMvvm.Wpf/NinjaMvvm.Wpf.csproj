@@ -12,6 +12,7 @@
     <Authors>Tim Burris</Authors>
     <Company>Tim Burris</Company>
     <PackageProjectUrl>https://github.com/TimBurris/NinjaMvvm</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/TimBurris/NinjaMvvm/blob/master/LICENSE</PackageLicenseUrl>
     <PackageTags>mvvm wpf relaycommand viewmodel</PackageTags>
     <IncludeSymbols>False</IncludeSymbols>
   </PropertyGroup>
@@ -22,87 +23,3 @@
   </ItemGroup>
 
 </Project>
-
-
-
-<!-- <?xml version="1.0" encoding="utf-8"?> -->
-<!-- <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"> -->
-  <!-- <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" /> -->
-  <!-- <PropertyGroup> -->
-    <!-- <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration> -->
-    <!-- <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform> -->
-    <!-- <ProjectGuid>{D9D87FF2-BB1A-4EBE-A8B6-D0891C8E6C69}</ProjectGuid> -->
-    <!-- <OutputType>Library</OutputType> -->
-    <!-- <AppDesignerFolder>Properties</AppDesignerFolder> -->
-    <!-- <RootNamespace>NinjaMvvm.Wpf</RootNamespace> -->
-    <!-- <AssemblyName>NinjaMvvm.Wpf</AssemblyName> -->
-    <!-- <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion> -->
-    <!-- <FileAlignment>512</FileAlignment> -->
-  <!-- </PropertyGroup> -->
-  <!-- <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' "> -->
-    <!-- <DebugSymbols>true</DebugSymbols> -->
-    <!-- <DebugType>full</DebugType> -->
-    <!-- <Optimize>false</Optimize> -->
-    <!-- <OutputPath>bin\Debug\</OutputPath> -->
-    <!-- <DefineConstants>DEBUG;TRACE</DefineConstants> -->
-    <!-- <ErrorReport>prompt</ErrorReport> -->
-    <!-- <WarningLevel>4</WarningLevel> -->
-  <!-- </PropertyGroup> -->
-  <!-- <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' "> -->
-    <!-- <DebugType>pdbonly</DebugType> -->
-    <!-- <Optimize>true</Optimize> -->
-    <!-- <OutputPath>bin\Release\</OutputPath> -->
-    <!-- <DefineConstants>TRACE</DefineConstants> -->
-    <!-- <ErrorReport>prompt</ErrorReport> -->
-    <!-- <WarningLevel>4</WarningLevel> -->
-    <!-- <DocumentationFile>bin\Release\NinjaMvvm.Wpf.xml</DocumentationFile> -->
-  <!-- </PropertyGroup> -->
-  <!-- <ItemGroup> -->
-    <!-- <Reference Include="FluentValidation, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL"> -->
-      <!-- <HintPath>..\packages\FluentValidation.9.2.2\lib\net461\FluentValidation.dll</HintPath> -->
-    <!-- </Reference> -->
-    <!-- <Reference Include="PresentationCore" /> -->
-    <!-- <Reference Include="PresentationFramework" /> -->
-    <!-- <Reference Include="System" /> -->
-    <!-- <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"> -->
-      <!-- <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath> -->
-    <!-- </Reference> -->
-    <!-- <Reference Include="System.ComponentModel.DataAnnotations" /> -->
-    <!-- <Reference Include="System.ComponentModel.Primitives"> -->
-      <!-- <HintPath>..\packages\System.ComponentModel.Primitives.4.3.0\lib\net45\System.ComponentModel.Primitives.dll</HintPath> -->
-      <!-- <Private>True</Private> -->
-    <!-- </Reference> -->
-    <!-- <Reference Include="System.Core" /> -->
-    <!-- <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL"> -->
-      <!-- <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath> -->
-    <!-- </Reference> -->
-    <!-- <Reference Include="System.Xml.Linq" /> -->
-    <!-- <Reference Include="System.Data.DataSetExtensions" /> -->
-    <!-- <Reference Include="Microsoft.CSharp" /> -->
-    <!-- <Reference Include="System.Data" /> -->
-    <!-- <Reference Include="System.Net.Http" /> -->
-    <!-- <Reference Include="System.Xml" /> -->
-    <!-- <Reference Include="WindowsBase" /> -->
-  <!-- </ItemGroup> -->
-  <!-- <ItemGroup> -->
-    <!-- <Compile Include="Abstractions\INavigator.cs" /> -->
-    <!-- <Compile Include="Abstractions\IViewModelResolver.cs" /> -->
-    <!-- <Compile Include="Contols\BindableContentPresenter.cs" /> -->
-    <!-- <Compile Include="Converters\NegativeBooleanToVisibilityConverter.cs" /> -->
-    <!-- <Compile Include="Navigator.cs" /> -->
-    <!-- <Compile Include="RelayCommand.cs" /> -->
-    <!-- <Compile Include="Properties\AssemblyInfo.cs" /> -->
-    <!-- <Compile Include="WpfViewModelBase.cs" /> -->
-  <!-- </ItemGroup> -->
-  <!-- <ItemGroup> -->
-    <!-- <ProjectReference Include="..\NinjaMvvm\NinjaMvvm.csproj"> -->
-      <!-- <Project>{ca8cbd46-c683-43a2-993a-428c34d00190}</Project> -->
-      <!-- <Name>NinjaMvvm</Name> -->
-    <!-- </ProjectReference> -->
-  <!-- </ItemGroup> -->
-  <!-- <ItemGroup> -->
-    <!-- <None Include="NinjaMvvm.Wpf.nuspec" /> -->
-    <!-- <None Include="packages.config" /> -->
-  <!-- </ItemGroup> -->
-  <!-- <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" /> -->
-<!-- </Project> -->
