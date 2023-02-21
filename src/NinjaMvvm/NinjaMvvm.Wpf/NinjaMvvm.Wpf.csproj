@@ -7,7 +7,6 @@
     <UseWPF>true</UseWPF>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Description>A light extension of NinjaMvvm with some Wpf specific additions</Description>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>NinjaMvvm.Wpf</Title>
     <Authors>Tim Burris</Authors>
     <Company>Tim Burris</Company>
