@@ -6,6 +6,8 @@
     <PackageLicenseUrl>https://github.com/DumpsterNinja/NinjaMvvm/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/DumpsterNinja/NinjaMvvm</PackageProjectUrl>
     <Authors>Tim Burris</Authors>
+    <Title>NinjaMvvm</Title>
+    <PackageTags>mvvm;relaycommand;viewmodel</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

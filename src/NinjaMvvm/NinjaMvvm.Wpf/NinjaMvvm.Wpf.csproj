@@ -12,7 +12,7 @@
     <Company>Tim Burris</Company>
     <PackageProjectUrl>https://github.com/TimBurris/NinjaMvvm</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/TimBurris/NinjaMvvm/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageTags>mvvm wpf relaycommand viewmodel</PackageTags>
+    <PackageTags>mvvm;wpf;relaycommand;viewmodel</PackageTags>
     <IncludeSymbols>False</IncludeSymbols>
   </PropertyGroup>
 
