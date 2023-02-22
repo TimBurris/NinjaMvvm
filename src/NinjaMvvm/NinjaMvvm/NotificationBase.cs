@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Text;
 
 namespace NinjaMvvm
 {
@@ -43,6 +42,35 @@ namespace NinjaMvvm
             }
 
             OnPropertyChanged(propertyName);
+
+            return true;
+        }
+
+        /// <summary>
+        /// Sets the field and calls OnPropertyChanged when field value was changed. 
+        /// Uses internal dictionary for field storing
+        /// </summary>
+        /// <returns><c>true</c>, if field was changed, <c>false</c> otherwise.</returns>
+        /// <param name="value">Value.</param>
+        /// <param name="propertyName">Property name.</param>
+        /// <param name="additonalPropertiesToNotify">Additonal properties to notify when changed.</param>
+        /// <typeparam name="T">The property type.</typeparam>
+        protected bool SetField<T>(T value, [CallerMemberName] string propertyName = null, params Expression<Func<object>>[] additonalPropertiesToNotify)
+        {
+            T field = GetField<T>(propertyName);
+
+            if (fieldValuesDictionary.ContainsKey(propertyName) && EqualityComparer<T>.Default.Equals(field, value))
+                return false;
+
+            lock (syncRoot)
+            {
+                fieldValuesDictionary[propertyName] = value;
+            }
+
+            OnPropertyChanged(propertyName);
+
+            foreach (var item in additonalPropertiesToNotify)
+                NotifyPropertyChanged(item);
 
             return true;
         }
