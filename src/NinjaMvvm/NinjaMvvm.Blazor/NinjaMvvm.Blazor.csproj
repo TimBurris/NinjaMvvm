@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <Description>A light extension of NinjaMvvm with some Blazor specific additions</Description>
+    <PackageProjectUrl>https://github.com/TimBurris/NinjaMvvm</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/TimBurris/NinjaMvvm/blob/master/LICENSE</PackageLicenseUrl>
+    <Authors>Tim Burris</Authors>
+    <Title>NinjaMvvm.Blazor</Title>
+    <PackageTags>mvvm;blazor;blazorserver;wasm;relaycommand;viewmodel</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
