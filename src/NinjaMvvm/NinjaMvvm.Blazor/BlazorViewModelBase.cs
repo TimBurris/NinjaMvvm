@@ -97,6 +97,23 @@ namespace NinjaMvvm.Blazor
                 NotifyStateChanged?.Invoke(this, EventArgs.Empty);
             }
         }
+
+        public bool HasContentEverRendered
+        {
+            get { return GetField<bool>(); }
+            set { SetField(value); }
+        }
+
+        public void ContentRenderComplete()
+        {
+            this.OnContentRenderComplete();
+            this.HasContentEverRendered = true;
+        }
+
+        /// <summary>
+        /// called once the content has rendered (useful if you want to do things like set focus to an element)
+        /// </summary>
+        public virtual void OnContentRenderComplete() { }
     }
 
 }
