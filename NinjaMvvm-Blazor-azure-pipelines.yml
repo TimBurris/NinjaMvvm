@@ -1,0 +1,32 @@
+
+parameters:
+  - name: VersionNumber
+    type: string 
+    default: '2.0.'
+    
+trigger: none
+
+name:  ${{ parameters.VersionNumber }}$(rev:.r)
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  packageVersion: ${{ parameters.VersionNumber }}
+
+steps:
+ 
+- task: DotNetCoreCLI@2
+  inputs:
+    command: pack
+    packagesToPack: '**/NinjaMvvm.Blazor.csproj'
+    versioningScheme: byEnvVar
+    versionEnvVar: packageVersion
+    outputDir: '$(Build.ArtifactStagingDirectory)'
+    configuration: Release
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
